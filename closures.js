@@ -53,13 +53,11 @@ var countdownGenerator = function (x) {
 // and returns a function that internally invokes (calls) callback during its execution and 
 // also logs the name, input parameters, and return value of the callback function. 
 var wrapLog = function (callback, name) {
-  var operation = name;
-
   return function (x, y, z) {
     if (!z) {
-      console.log(`${operation}(${x},${y}) =>`);
+      console.log(`${name}(${x},${y}) =>`);
     } else {
-      console.log(`${operation}(${x},${y},${z}) =>`);
+      console.log(`${name}(${x},${y},${z}) =>`);
     }
     return callback(x, y, z);
   }
