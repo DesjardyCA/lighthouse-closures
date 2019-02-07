@@ -26,10 +26,17 @@ var countdownGenerator = function (x) {
   /* your code here */
   var count = x;
 
-  return count => {
+  return function () {
     if (count > 0) {
-      console.log("T-minus ${count}");
+      console.log(`T-minus ${ count }`);
+      count--;
+      return;
+    } else if (count === 0) {
+      console.log(`Blast Off!`);
+      count--;
+      return;
     }
+    console.log(`Rockets already gone, bub!`);
   }
 };
 
